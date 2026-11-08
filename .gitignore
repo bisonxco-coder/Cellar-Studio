@@ -1,0 +1,11 @@
+# Track only the custom theme. WordPress core, uploads, plugins, backups
+# and secrets stay off GitHub.
+
+/*
+!/.gitignore
+!/README.md
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/cellar-studio/

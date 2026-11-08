@@ -1,0 +1,861 @@
+/* Responsive rules only */
+
+/* Blog hero: shorter band on large screens */
+@media (min-width: 992px) {
+  .page-hero--blog {
+    min-height: 70vh;
+  }
+
+  .page-hero--blog .page-hero-bg-img {
+    min-height: 70vh;
+  }
+
+  .page-hero--blog .page-hero-overlay {
+    min-height: 70vh;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  /* Reduce heavy vertical paddings on medium screens */
+  .section-portfolio {
+    padding: 4.5rem 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  /* Global: make fluid containers behave on smaller screens */
+  .container-fluid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .blog-hero-search {
+    margin-top: 1.75rem;
+    padding: 0.72rem 1.2rem 0.72rem 1rem;
+    width: min(100%, 480px);
+  }
+
+  .page-hero {
+    min-height: 85vh;
+  }
+
+  .hero-top-nav {
+    padding-top: 1.2rem;
+  }
+
+  .hero-main-nav {
+    display: none !important;
+  }
+
+  .hero-cta-top {
+    display: none !important;
+  }
+
+  .hero-slider {
+    min-height: 80vh;
+  }
+
+  .hero-thumbs-container {
+    bottom: 1.5rem;
+  }
+
+  /* Logo strip */
+  .logo-strip-item img {
+    max-height: 28px;
+  }
+
+  /* Section titles */
+  .section-portfolio .section-title,
+  .collections-title,
+  .home-collection-cards-title,
+  .news-title,
+  .partners-title {
+    font-size: 2.2rem;
+  }
+
+  /* Portfolio cards (carousel) */
+  .portfolio-card-image img {
+    height: 380px;
+  }
+
+  .portfolio-card-cta {
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+
+  .solutions-title {
+    font-size: 2.2rem;
+  }
+
+  .solution-card {
+    height: 70vh;
+    min-height: 420px;
+  }
+
+  /* What We Do */
+  .what-we-do-card {
+    border-radius: 1.25rem;
+  }
+
+  /* Taller image strip: more room for the bubble (translate -100%) inside overflow clipping */
+  .what-we-do-visual {
+    min-height: clamp(360px, 58vh, 560px);
+  }
+
+  .what-we-do-visual > .what-we-do-bg {
+    width: 100%;
+    min-height: clamp(360px, 58vh, 560px);
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bespoke-deliver-title {
+    left: 1.25rem;
+    bottom: 25rem;
+    font-size: 2.7rem;
+  }
+
+  /* Bubble: center horizontally so translate(-50%) never clips off-screen */
+  .what-we-do-detail {
+    left: 50% !important;
+    width: calc(100% - 1.5rem);
+    max-width: 380px;
+    padding: 1.1rem 1.25rem;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Mobile swiper: show options as a slider in the middle (no clicks) */
+  .wwd-mobile-swiper-mode .wwd-hotspot {
+    display: none !important;
+  }
+
+  /* Keep the top bubble visible; remove pointer interference */
+  .wwd-mobile-swiper-mode .what-we-do-detail {
+    top: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 1.5rem);
+    max-width: 420px;
+    pointer-events: auto;
+  }
+
+  .wwd-mobile-swiper-mode .wwd-panel,
+  .wwd-mobile-swiper-mode .wwd-panel.d-none {
+    display: block !important;
+  }
+
+  /* Hide panels inside the bubble (we render them inside Swiper slides) */
+  .wwd-mobile-swiper-mode .what-we-do-detail [data-hotspot-text] {
+    display: none !important;
+  }
+
+  .wwd-mobile-swiper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 52%;
+    width: calc(100% - 1.5rem);
+    max-width: 520px;
+    z-index: 4;
+    padding-top: 1.5rem; /* room for SWIPE hint */
+  }
+
+  .wwd-swipe-hint {
+    position: absolute;
+    top: 0.15rem;
+    right: 0.35rem;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .wwd-mobile-slide-card {
+    background: rgba(232, 232, 232, 0.32);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.25rem;
+    padding: 1rem 1.1rem;
+    color: #ffffff;
+    box-sizing: border-box;
+  }
+
+  .wwd-stats {
+    right: 1rem;
+    bottom: 1rem;
+    gap: 0.75rem;
+  }
+
+  .wwd-stat-card {
+    min-width: 160px;
+    padding: 0.9rem 1rem 1rem;
+  }
+
+  /* Collections: make product cards more compact */
+  .product-card-image {
+    min-height: 220px;
+    padding: 1.25rem 1.25rem 0.5rem;
+  }
+
+  .product-card-body {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .product-title {
+    font-size: 1.15rem;
+  }
+
+  /* News cards */
+  .news-card-image img {
+    height: 240px;
+  }
+
+  /* About: Who We Are */
+  .about-who-title {
+    font-size: 2.4rem;
+  }
+
+  .about-who-desc {
+    max-width: 100%;
+  }
+
+  /* About: From Concept To Craft */
+  .about-concept-title {
+    font-size: 2.4rem;
+  }
+
+  .about-concept-left,
+  .about-concept-right {
+    margin-top: 0;
+  }
+
+  .about-concept-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .about-concept-center {
+    margin-top: 0;
+    grid-column: 1 / -1;
+  }
+
+  /* About: Our Team */
+  .about-team-title {
+    font-size: 2.4rem;
+  }
+
+  .about-team-desc {
+    max-width: 100%;
+  }
+
+  .team-card {
+    min-height: 360px;
+  }
+
+  /* About: Technical Precision */
+  .about-tech-title {
+    font-size: 2.4rem;
+  }
+
+  /* About: Our Involvement */
+  .about-involvement-overlay {
+    padding: 2rem 1.5rem;
+  }
+
+  .about-involvement-title {
+    font-size: 2.4rem;
+  }
+
+  .about-involvement-text {
+    max-width: 100%;
+  }
+
+  /* About: CTA */
+  .about-cta-title {
+    font-size: 2.4rem;
+  }
+
+  /* Bespoke: process section */
+  .bespoke-process-layout {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .bespoke-process-cards {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Materials & Finishes: stack for tablet */
+  .materials-finishes-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 1.5rem;
+  }
+
+  .mf-cell--metal,
+  .mf-cell--glass,
+  .mf-cell--wide,
+  .mf-cell--wood {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 240px;
+  }
+
+  .mf-cell--wood {
+    min-height: 320px;
+  }
+
+  .materials-finishes-title {
+    font-size: 2.15rem;
+  }
+
+  .mf-pill {
+    padding: 0.62rem 1.35rem;
+    font-size: 0.95rem;
+  }
+
+  .bespoke-process-heading-wrap {
+    position: static;
+  }
+
+  .bespoke-process-heading {
+    font-size: 2.35rem;
+    max-width: 520px;
+  }
+
+  /* Blog post detail */
+  .blog-detail-sidebar {
+    position: static;
+    top: auto;
+  }
+
+  .blog-detail-hero-title {
+    text-align: center;
+    margin-inline: auto;
+    max-width: 40rem;
+  }
+
+  .recommended-blogs-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recommended-blogs-nav {
+    align-self: flex-end;
+  }
+
+  .recommended-blog-card .news-card-image img {
+    height: 200px;
+  }
+
+  /* Product details */
+  .product-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .product-hero-content {
+    padding-bottom: 1rem;
+  }
+
+  .productGallerySwiper {
+    --product-gallery-stage-h: 380px;
+    --product-gallery-controls-h: 42px;
+  }
+
+  .product-main-image {
+    max-width: min(70%, 340px);
+  }
+
+  .productGallerySwiper .swiper-slide-active .product-main-image {
+    max-width: min(88%, 460px);
+  }
+
+  .productGallerySwiper .swiper-slide-active .product-gallery-item::after {
+    bottom: 0.4rem;
+    width: min(82%, 440px);
+  }
+
+  .product-details-heading {
+    font-size: 1.9rem;
+  }
+
+  .product-details-subheading {
+    font-size: 1.65rem;
+  }
+
+  .product-spec-table-row {
+    grid-template-columns: 140px 1fr;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container-fluid {
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .blog-hero-search {
+    margin-top: 1.35rem;
+    padding: 0.62rem 1rem 0.62rem 0.9rem;
+    width: 100%;
+  }
+
+  .blog-hero-search-field {
+    font-size: 0.9rem;
+  }
+
+  .blog-detail-hero-title {
+    font-size: 1.45rem;
+    line-height: 1.18;
+  }
+
+  .blog-article-figure {
+    margin: 1.35rem 0;
+    border-radius: 12px;
+  }
+
+  .recommended-blogs-title {
+    font-size: 1.65rem;
+  }
+
+  .recommended-blogs-prev,
+  .recommended-blogs-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .recommended-blog-card .news-card-image img {
+    height: 180px;
+    border-radius: 12px;
+  }
+
+  .contact-field--phone {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-phone-prefix {
+    max-width: none;
+    width: 100%;
+    border-right: none !important;
+    border-bottom: 1px solid #ececec !important;
+  }
+
+  .contact-field--phone .contact-field-input {
+    padding-left: 0.9rem !important;
+  }
+
+  .contact-faq-title {
+    max-width: none;
+    margin-bottom: 0.25rem;
+  }
+
+  .blog-pagination {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+
+  .blog-pagination-pages {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+  }
+
+  .blog-pagination-edge:first-of-type {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .blog-pagination-edge:last-of-type {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .hero-thumb-card img {
+    height: 64px;
+  }
+
+  .solutions-title {
+    font-size: 2rem;
+  }
+
+  .solution-card {
+    height:70vh;
+    min-height: 360px;
+  }
+
+  .solution-card-overlay {
+    justify-content: center;
+  }
+
+  /* Mobile/touch: disable hover/focus label drop-down */
+  .solution-card:hover .solution-card-label,
+  .solution-card:focus-within .solution-card-label,
+  .solution-card:active .solution-card-label {
+    top: 1rem !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .solution-card-label {
+    transition: none !important;
+  }
+  /* Logo strip */
+  .section-logo-strip {
+    padding-block: 0.5rem;
+  }
+
+  .logo-strip-item img {
+    max-height: 24px;
+  }
+
+  /* Section titles (small phones) */
+  .section-portfolio .section-title,
+  .collections-title,
+  .news-title,
+  .partners-title,
+  .solutions-title {
+    font-size: 1.9rem;
+  }
+
+  /* Portfolio cards */
+  .portfolio-card-image img {
+    height: 300px;
+  }
+
+  .portfolio-card-body {
+    padding: 1.25rem 1.25rem 1.4rem;
+  }
+
+  /* What We Do: avoid overlap on small screens */
+  .what-we-do-visual {
+    min-height: clamp(380px, 62vh, 600px);
+  }
+
+  .what-we-do-visual > .what-we-do-bg {
+    min-height: clamp(380px, 62vh, 600px);
+  }
+
+  .wwd-hotspot {
+    width: 22px;
+    height: 22px;
+  }
+
+  .bespoke-deliver-title {
+    left: 1rem;
+    bottom: 1rem;
+    font-size: 2.05rem;
+  }
+
+  .what-we-do-detail {
+    width: calc(100% - 1.25rem);
+    max-width: none;
+    padding: 1rem 1.1rem;
+  }
+
+  .wwd-stats {
+    position: static;
+    margin-top: 0.9rem;
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .wwd-stat-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .wwd-stat-value {
+    font-size: 1.85rem;
+  }
+
+  /* Collections cards */
+  .product-spec-row {
+    font-size: 0.82rem;
+  }
+
+  /* News cards */
+  .news-card-image img {
+    height: 200px;
+  }
+
+  .news-card-title {
+    font-size: 1.15rem;
+  }
+
+  /* Footer columns spacing */
+  .site-footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* About: Who We Are */
+  .about-who-topline {
+    grid-template-columns: auto 10px 1fr;
+  }
+
+  .about-who-topline .about-dot:last-child {
+    display: none;
+  }
+
+  .about-who-title {
+    font-size: 2.1rem;
+  }
+
+  .about-feature {
+    grid-template-columns: 44px 1fr;
+    padding: 0.95rem 1rem;
+  }
+
+  .about-feature-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .about-who-card-copy h3 {
+    font-size: 1.6rem;
+  }
+
+  /* About: From Concept To Craft */
+  .about-concept-title {
+    font-size: 2.1rem;
+  }
+
+  .about-concept-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about-concept-center {
+    grid-column: auto;
+  }
+
+  /* About: Our Team */
+  .about-team-title {
+    font-size: 2.1rem;
+  }
+
+  .about-team-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card {
+    min-height: 340px;
+  }
+
+  /* About: Technical Precision */
+  .about-tech-title {
+    font-size: 2.1rem;
+  }
+
+  /* About: Our Involvement */
+  .about-involvement-overlay {
+    padding: 1.5rem 1.1rem;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.35) 60%,
+      rgba(0, 0, 0, 0.15) 100%
+    );
+  }
+
+  .about-involvement-title {
+    font-size: 2.1rem;
+  }
+
+  .about-involvement-card {
+    min-height: 0;
+  }
+
+  /* About: CTA */
+  .about-cta-title {
+    font-size: 2.1rem;
+  }
+
+  /* Bespoke: process section */
+  .bespoke-process-section .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .bespoke-process-heading {
+    font-size: 1.95rem;
+    line-height: 1;
+    max-width: 310px;
+  }
+
+  .bespoke-process-image {
+    padding: 10px 10px 0;
+  }
+
+  .bespoke-process-image img {
+    height: 190px;
+  }
+
+  .bespoke-process-title {
+    font-size: 1.65rem;
+  }
+
+  .bespoke-process-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .materials-finishes-title {
+    font-size: 1.85rem;
+  }
+
+  .mf-cell--metal,
+  .mf-cell--glass,
+  .mf-cell--wide,
+  .mf-cell--wood {
+    min-height: 200px;
+    border-radius: 12px;
+  }
+
+  .mf-cell--wood {
+    min-height: 260px;
+  }
+
+  .mf-pill {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.88rem;
+    max-width: 92%;
+  }
+
+  /* Product details */
+  .product-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .productGallerySwiper {
+    --product-gallery-stage-h: 320px;
+    --product-gallery-controls-h: 40px;
+  }
+
+  .product-main-image {
+    max-width: min(78%, 260px);
+  }
+
+  .productGallerySwiper .swiper-slide-active .product-main-image {
+    max-width: min(92%, 360px);
+  }
+
+  .productGallerySwiper .swiper-slide-active .product-gallery-item::after {
+    bottom: 0.35rem;
+    width: min(88%, 320px);
+  }
+
+  .product-gallery-bottom {
+    gap: 0.5rem;
+  }
+
+  .product-details-section {
+    padding-top: 1rem;
+  }
+
+  .product-details-heading {
+    font-size: 1.65rem;
+  }
+
+  .product-details-subheading {
+    font-size: 1.45rem;
+  }
+
+  .product-details-paragraph {
+    font-size: 0.92rem;
+    max-width: 100%;
+  }
+
+  .product-spec-table-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    font-size: 0.88rem;
+  }
+
+  .product-summary-card {
+    padding: 1rem 0.9rem;
+  }
+
+  .product-summary-price {
+    font-size: 1.45rem;
+  }
+
+  .similar-products-title {
+    font-size: 2rem;
+  }
+
+  .similar-product-card {
+    width: 100%;
+  }
+
+  .similar-product-name {
+    font-size: 1.25rem;
+  }
+
+  .similar-product-price {
+    font-size: 1.45rem;
+  }
+
+  .thank-you-hero {
+    min-height: 620px;
+  }
+
+  .thank-you-title {
+    font-size: 2rem;
+  }
+
+  .thank-you-actions {
+    flex-direction: column;
+    align-items: stretch;
+    padding-inline: 0.5rem;
+  }
+
+  .thank-you-btn,
+  .thank-you-btn--ghost {
+    width: 100%;
+  }
+
+  .thank-you-step-card {
+    padding: 1.5rem 1.25rem 1.35rem;
+  }
+
+  .thank-you-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thank-you-trust-stat {
+    min-height: auto;
+    padding: 1.25rem 1.1rem;
+  }
+}
+

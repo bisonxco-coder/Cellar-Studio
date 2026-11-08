@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.log
+*.zip
+
+# Source/export videos over GitHub's practical size limit.
+# Keep the compressed web hero files that the live site uses.
+assets/video/*.mp4
+!assets/video/Homepage-web.mp4
