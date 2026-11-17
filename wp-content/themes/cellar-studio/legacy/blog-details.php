@@ -177,6 +177,20 @@ $cellarShareTitleEnc = rawurlencode($cellarShareTitle);
     </div>
   </main>
 
+  <section class="blog-related-services py-4" aria-label="Related Cellar Studio services">
+    <div class="container">
+      <h2 class="blog-guide-title">Plan a cellar from this guide</h2>
+      <nav class="blog-topic-links">
+        <a href="bespoke.php">Bespoke wine cellars</a>
+        <a href="wine-fridge.php">Wine fridges</a>
+        <a href="cigar-humidors.php">Cigar humidors</a>
+        <a href="wine-racking-solutions.php">Wine racking</a>
+        <a href="blog.php">All guides</a>
+        <a href="contact.php">Contact the studio</a>
+      </nav>
+    </div>
+  </section>
+
   <!-- Recommended blogs: carousel (titull majtas, shigjeta djathtas) -->
   <section class="recommended-blogs-section py-5 py-lg-6 reveal reveal--fade" aria-labelledby="recommended-blogs-heading">
     <div class="container">

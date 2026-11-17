@@ -20,6 +20,12 @@ $cellar_bespoke_thank_you = home_url('/thank-you-bespoke/');
 				<p class="footer-tagline mb-0">
 					Exclusive Wine &amp; Cigar Spaces
 				</p>
+				<p class="footer-nap mb-0">
+					Swiss Tower, Cluster Y, Jumeirah Lakes Towers, Dubai<br>
+					<a href="tel:+971509124567">+971 50 912 4567</a>
+					· <a href="mailto:sacha@cellar-studio.com">sacha@cellar-studio.com</a><br>
+					Monday–Saturday, 08:00 AM – 09:00 PM
+				</p>
 			</div>
 
 			<div class="footer-columns row g-3 g-lg-4">
@@ -104,7 +110,7 @@ $cellar_bespoke_thank_you = home_url('/thank-you-bespoke/');
 
 <a
 	href="https://api.whatsapp.com/send/?phone=971509124567"
-	class="whatsapp-fab"
+	class="whatsapp-fab is-visible"
 	id="whatsappFab"
 	target="_blank"
 	rel="noopener"

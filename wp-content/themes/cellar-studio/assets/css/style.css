@@ -586,6 +586,10 @@ body.nav-is-fixed .blog-detail-hero {
   line-height: 1.05;
 }
 
+p.hero-title {
+  margin: 0;
+}
+
 /* Subtitle under hero title – centered paragraph */
 .hero-subtitle {
   margin-top: 1.5rem;
@@ -3827,10 +3831,10 @@ body.nav-is-fixed .blog-detail-hero {
   place-items: center;
   background: transparent;
   text-decoration: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translate3d(0, 10px, 0);
-  transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
 .whatsapp-fab.is-visible {
@@ -3876,6 +3880,46 @@ body.nav-is-fixed .blog-detail-hero {
   font-size: 1.2rem;
   color: #222222;
   font-family: "Kaftan Serif", "Times New Roman", serif;
+}
+
+.footer-nap {
+  margin-top: 0.85rem;
+  max-width: 22rem;
+  color: #555555;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.footer-nap a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.footer-nap a:hover {
+  color: #111111;
+}
+
+.blog-guide-title {
+  font-family: "Kaftan Serif", "Times New Roman", serif;
+  font-size: 1.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.blog-guide-lead {
+  max-width: 42rem;
+  color: #444444;
+}
+
+.blog-topic-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.1rem;
+}
+
+.blog-topic-links a {
+  color: #222222;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .footer-columns {

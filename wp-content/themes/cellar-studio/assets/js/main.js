@@ -132,33 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
     revealItems.forEach((el) => io.observe(el));
   }
 
-  // WhatsApp fixed button: show after first section scrolls out
-  const whatsappFab = document.getElementById("whatsappFab");
-  if (whatsappFab) {
-    const firstSection = document.querySelector("body > section");
-    if (firstSection && "IntersectionObserver" in window) {
-      const heroOutObserver = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          if (!entry) return;
-          const outOfView = entry.isIntersecting === false;
-          whatsappFab.classList.toggle("is-visible", outOfView);
-        },
-        { root: null, threshold: 0.01 }
-      );
-
-      heroOutObserver.observe(firstSection);
-    } else {
-      // Fallback: show after one viewport height
-      const onScroll = () => {
-        const show = window.scrollY > Math.min(520, window.innerHeight * 0.9);
-        whatsappFab.classList.toggle("is-visible", show);
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-    }
-  }
-
   // In-page enquiry hashes: smooth-scroll when the section is on this page.
   // Real URLs (e.g. /bespoke/#bespoke-enquiry) must navigate — never open the old popup.
   function cellarHrefIsSamePage(href) {

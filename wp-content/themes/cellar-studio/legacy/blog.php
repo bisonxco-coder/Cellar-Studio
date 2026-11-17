@@ -52,8 +52,8 @@ $navActive = "blog";
       <div class="container h-100 d-flex flex-column justify-content-center align-items-center text-center px-3">
         <div class="hero-content reveal reveal--fade w-100">
           <h1 class="hero-title">
-            Find blog inspiration<br>
-            that you want to explore
+            Guides for wine cellars<br>
+            and cigar rooms
           </h1>
 
           <form class="blog-hero-search" role="search" action="<?php echo function_exists('home_url') ? esc_url(home_url('/blog/')) : '#'; ?>" method="get" aria-label="Search blog posts">
@@ -79,9 +79,32 @@ $navActive = "blog";
     </div>
   </section>
 
+  <section class="blog-guide-intro py-4 py-lg-5" aria-labelledby="blog-guide-heading">
+    <div class="container-fluid">
+      <h2 id="blog-guide-heading" class="blog-guide-title">From the Cellar Studio journal</h2>
+      <p class="blog-guide-lead mb-3">
+        Practical guides on wine storage, cigar humidors, cooling, and bespoke cellar design for homes and hospitality in Dubai and Switzerland.
+      </p>
+      <nav class="blog-topic-links" aria-label="Related services">
+        <a href="bespoke.php">Bespoke cellars</a>
+        <a href="wine-fridge.php">Wine fridges</a>
+        <a href="cigar-humidors.php">Cigar humidors</a>
+        <a href="wine-racking-solutions.php">Wine racking</a>
+        <a href="contact.php">Plan a project</a>
+      </nav>
+    </div>
+  </section>
+
   <!-- Blog archive: sort + grid (kartat = të njëjtat klasa si News në index.php) + pagination -->
   <section class="section-news section-blog-archive py-5 py-lg-6 reveal reveal--fade" aria-label="Blog posts">
     <div class="container-fluid">
+      <?php
+        $cellar_blog_order = isset($_GET['orderby']) ? sanitize_key((string) wp_unslash($_GET['orderby'])) : 'latest';
+        if (!in_array($cellar_blog_order, ['latest', 'oldest', 'title'], true)) {
+          $cellar_blog_order = 'latest';
+        }
+        $cellar_blog_base = function_exists('home_url') ? home_url('/blog/') : 'blog.php';
+      ?>
       <div class="blog-archive-toolbar d-flex flex-wrap align-items-center gap-2 gap-sm-3 mb-4 mb-lg-5 reveal">
         <span class="blog-sort-label" id="blog-sort-label">Sort by:</span>
         <div class="dropdown">
@@ -93,12 +116,14 @@ $navActive = "blog";
             aria-expanded="false"
             aria-labelledby="blog-sort-label"
           >
-            Latest release
+            <?php
+              echo esc_html($cellar_blog_order === 'oldest' ? 'Oldest first' : ($cellar_blog_order === 'title' ? 'Title A–Z' : 'Latest release'));
+            ?>
           </button>
           <ul class="dropdown-menu dropdown-menu-end shadow-sm border" aria-labelledby="blogSortDropdown">
-            <li><a class="dropdown-item active" href="#">Latest release</a></li>
-            <li><a class="dropdown-item" href="#">Oldest first</a></li>
-            <li><a class="dropdown-item" href="#">Title A–Z</a></li>
+            <li><a class="dropdown-item<?php echo $cellar_blog_order === 'latest' ? ' active' : ''; ?>" href="<?php echo esc_url($cellar_blog_base); ?>">Latest release</a></li>
+            <li><a class="dropdown-item<?php echo $cellar_blog_order === 'oldest' ? ' active' : ''; ?>" href="<?php echo esc_url(add_query_arg('orderby', 'oldest', $cellar_blog_base)); ?>">Oldest first</a></li>
+            <li><a class="dropdown-item<?php echo $cellar_blog_order === 'title' ? ' active' : ''; ?>" href="<?php echo esc_url(add_query_arg('orderby', 'title', $cellar_blog_base)); ?>">Title A–Z</a></li>
           </ul>
         </div>
       </div>

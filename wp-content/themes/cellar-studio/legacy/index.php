@@ -401,8 +401,8 @@ temperature control, and elegant presentation.             </p>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
           <article class="solution-card reveal">
-            <img src="img/Services 4.png" alt="Rackings Solutions">
-            <div class="solution-card-label">Rackings Solutions</div>
+            <img src="img/Services 4.png" alt="Racking Solutions">
+            <div class="solution-card-label">Racking Solutions</div>
             <div class="solution-card-overlay">
               <p class="solution-card-text">
               From fully bespoke wine racking to ready-made solutions,
@@ -435,7 +435,7 @@ interior.             </p>
           <div class="wwd-panel wwd-text-active" data-hotspot-text="cellars">
             <!-- <p class="wwd-subtitle">Chillers</p> -->
             <p class="wwd-body">
-            Bespoke or ready made racking systems
+            Bespoke wine cellars, wine walls, and racking systems, from concept to installation.
             </p>
           </div>
 
@@ -443,7 +443,7 @@ interior.             </p>
           <div class="wwd-panel d-none" data-hotspot-text="cigar">
             <!-- <p class="wwd-subtitle">Bespoke</p> -->
             <p class="wwd-body">
-            Integrated SwissCave wine fridge
+            Custom cigar humidors and cigar rooms, with humidity kept stable for the collection.
             </p>
           </div>
 
@@ -451,7 +451,7 @@ interior.             </p>
           <div class="wwd-panel d-none" data-hotspot-text="design">
             <!-- <p class="wwd-subtitle">Racking</p> -->
             <p class="wwd-body">
-            Monoblock or Split chiller system for long conservation
+            Climate systems for long conservation, including integrated SwissCave wine fridges and monoblock or split chillers.
             </p>
           </div>
         </div>

@@ -228,7 +228,7 @@ $navActive = "wine-racking";
     <div class="container">
       <div class="row g-4 g-lg-5 align-items-start">
         <div class="col-lg-5 col-xl-4 reveal">
-          <h2 id="contact-faq-heading" class="contact-faq-title">Frequently Asked Question</h2>
+          <h2 id="contact-faq-heading" class="contact-faq-title">Frequently Asked Questions</h2>
         </div>
         <div class="col-lg-7 col-xl-8 reveal">
           <div class="accordion contact-faq-accordion" id="contactFaqAccordion">

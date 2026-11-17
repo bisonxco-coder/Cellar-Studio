@@ -80,7 +80,7 @@ $navActive = "bespoke";
             <div class="hero-overlay">
               <div class="container h-100 d-flex flex-column">
                 <div class="hero-content flex-grow-1 d-flex flex-column justify-content-center">
-                  <h1 class="hero-title">Bespoke</h1>
+                  <p class="hero-title">Bespoke</p>
                   <p class="hero-subtitle">
                     We design and execute fully bespoke wine cellars, cigar rooms, and integrated storage environments — tailored to your architecture, collection, and lifestyle.
                   </p>
@@ -100,7 +100,7 @@ $navActive = "bespoke";
             <div class="hero-overlay">
               <div class="container h-100 d-flex flex-column">
                 <div class="hero-content flex-grow-1 d-flex flex-column justify-content-center">
-                  <h1 class="hero-title">Bespoke</h1>
+                  <p class="hero-title">Bespoke</p>
                   <p class="hero-subtitle">
                     We design and execute fully bespoke wine cellars, cigar rooms, and integrated storage environments — tailored to your architecture, collection, and lifestyle.
                   </p>
@@ -294,7 +294,7 @@ clean, elegant composition">
 
           <div class="wwd-panel d-none" data-hotspot-text="deliver-2">
             <!-- <p class="wwd-subtitle">Precision Joinery</p> -->
-            <p class="wwd-body">Perfect Kelvin ligthing for you wine</p>
+            <p class="wwd-body">Perfect Kelvin lighting for your wine</p>
           </div>
 
           <div class="wwd-panel d-none" data-hotspot-text="deliver-3">
@@ -455,7 +455,7 @@ clean, elegant composition">
     <div class="container">
       <div class="row g-4 g-lg-5 align-items-start">
         <div class="col-lg-5 col-xl-4 reveal">
-          <h2 id="contact-faq-heading" class="contact-faq-title">Frequently Asked Question</h2>
+          <h2 id="contact-faq-heading" class="contact-faq-title">Frequently Asked Questions</h2>
         </div>
         <div class="col-lg-7 col-xl-8 reveal">
           <div class="accordion contact-faq-accordion" id="contactFaqAccordion">

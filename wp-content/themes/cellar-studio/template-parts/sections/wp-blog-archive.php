@@ -9,13 +9,23 @@ if (isset($_GET['s'])) {
 	$search = sanitize_text_field((string) wp_unslash($_GET['s']));
 }
 
-$q = new WP_Query([
+$orderby = isset($_GET['orderby']) ? sanitize_key((string) wp_unslash($_GET['orderby'])) : 'latest';
+$query_args = [
 	'post_type' => 'post',
 	'post_status' => 'publish',
 	'posts_per_page' => 12,
 	'paged' => $paged,
 	's' => $search,
-]);
+	'orderby' => 'date',
+	'order' => 'DESC',
+];
+if ($orderby === 'oldest') {
+	$query_args['order'] = 'ASC';
+} elseif ($orderby === 'title') {
+	$query_args['orderby'] = 'title';
+	$query_args['order'] = 'ASC';
+}
+$q = new WP_Query($query_args);
 
 function cellar_studio_estimated_reading_time_minutes(string $html): int {
 	$text = wp_strip_all_tags($html);
@@ -67,6 +77,9 @@ if ($total > 1):
 	$addArgs = [];
 	if ($search !== '') {
 		$addArgs['s'] = $search;
+	}
+	if (in_array($orderby, ['oldest', 'title'], true)) {
+		$addArgs['orderby'] = $orderby;
 	}
 	$links = paginate_links([
 		'total' => $total,
