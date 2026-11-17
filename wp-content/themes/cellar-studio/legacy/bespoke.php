@@ -80,7 +80,7 @@ $navActive = "bespoke";
             <div class="hero-overlay">
               <div class="container h-100 d-flex flex-column">
                 <div class="hero-content flex-grow-1 d-flex flex-column justify-content-center">
-                  <p class="hero-title">Bespoke</p>
+                  <p class="hero-title mb-2">Bespoke</p>
                   <p class="hero-subtitle">
                     We design and execute fully bespoke wine cellars, cigar rooms, and integrated storage environments — tailored to your architecture, collection, and lifestyle.
                   </p>
@@ -100,7 +100,7 @@ $navActive = "bespoke";
             <div class="hero-overlay">
               <div class="container h-100 d-flex flex-column">
                 <div class="hero-content flex-grow-1 d-flex flex-column justify-content-center">
-                  <p class="hero-title">Bespoke</p>
+                  <p class="hero-title mb-2">Bespoke</p>
                   <p class="hero-subtitle">
                     We design and execute fully bespoke wine cellars, cigar rooms, and integrated storage environments — tailored to your architecture, collection, and lifestyle.
                   </p>

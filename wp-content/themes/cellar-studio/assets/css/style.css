@@ -586,10 +586,6 @@ body.nav-is-fixed .blog-detail-hero {
   line-height: 1.05;
 }
 
-p.hero-title {
-  margin: 0;
-}
-
 /* Subtitle under hero title – centered paragraph */
 .hero-subtitle {
   margin-top: 1.5rem;
@@ -3884,19 +3880,18 @@ p.hero-title {
 
 .footer-nap {
   margin-top: 0.85rem;
-  max-width: 22rem;
-  color: #555555;
+  color: #666666;
   font-size: 0.88rem;
   line-height: 1.5;
 }
 
 .footer-nap a {
-  color: #333333;
+  color: #666666;
   text-decoration: none;
 }
 
 .footer-nap a:hover {
-  color: #111111;
+  color: #222222;
 }
 
 .blog-guide-title {

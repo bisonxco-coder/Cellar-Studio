@@ -435,7 +435,7 @@ interior.             </p>
           <div class="wwd-panel wwd-text-active" data-hotspot-text="cellars">
             <!-- <p class="wwd-subtitle">Chillers</p> -->
             <p class="wwd-body">
-            Bespoke wine cellars, wine walls, and racking systems, from concept to installation.
+            Bespoke or ready made racking systems
             </p>
           </div>
 
@@ -443,7 +443,7 @@ interior.             </p>
           <div class="wwd-panel d-none" data-hotspot-text="cigar">
             <!-- <p class="wwd-subtitle">Bespoke</p> -->
             <p class="wwd-body">
-            Custom cigar humidors and cigar rooms, with humidity kept stable for the collection.
+            Integrated SwissCave wine fridge
             </p>
           </div>
 
@@ -451,7 +451,7 @@ interior.             </p>
           <div class="wwd-panel d-none" data-hotspot-text="design">
             <!-- <p class="wwd-subtitle">Racking</p> -->
             <p class="wwd-body">
-            Climate systems for long conservation, including integrated SwissCave wine fridges and monoblock or split chillers.
+            Monoblock or Split chiller system for long conservation
             </p>
           </div>
         </div>

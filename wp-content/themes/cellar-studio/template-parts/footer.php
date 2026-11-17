@@ -23,7 +23,8 @@ $cellar_bespoke_thank_you = home_url('/thank-you-bespoke/');
 				<p class="footer-nap mb-0">
 					Swiss Tower, Cluster Y, Jumeirah Lakes Towers, Dubai<br>
 					<a href="tel:+971509124567">+971 50 912 4567</a>
-					· <a href="mailto:sacha@cellar-studio.com">sacha@cellar-studio.com</a><br>
+					·
+					<a href="mailto:sacha@cellar-studio.com">sacha@cellar-studio.com</a><br>
 					Monday–Saturday, 08:00 AM – 09:00 PM
 				</p>
 			</div>
@@ -119,6 +120,132 @@ $cellar_bespoke_thank_you = home_url('/thank-you-bespoke/');
 	<img src="<?php echo esc_url(cellar_studio_asset('img/WhatsApp_icon.png')); ?>" alt="" class="whatsapp-fab-icon">
 </a>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	function cellarPageLabel() {
+		var path = (window.location.pathname || "/").replace(/\/+$/, "");
+		var parts = path.split("/").filter(Boolean);
+		var productAt = parts.indexOf("product");
+		if (productAt >= 0 && parts[productAt + 1]) {
+			return "Product " + decodeURIComponent(parts[productAt + 1]);
+		}
+		var labels = {
+			"bespoke": "Bespoke",
+			"wine-fridge": "Wine Fridge",
+			"cigar-humidors": "Cigar Humidors",
+			"wine-racking-solutions": "Wine Racking",
+			"contact": "Contact",
+			"about": "About",
+			"shop": "Shop",
+			"blog": "Blog"
+		};
+		for (var i = parts.length - 1; i >= 0; i--) {
+			if (labels[parts[i]]) return labels[parts[i]];
+		}
+		if (!parts.length) return "Home";
+		var last = parts[parts.length - 1];
+		if (last.indexOf(".") !== -1) return "Home";
+		return decodeURIComponent(last).replace(/-/g, " ");
+	}
+
+	function cellarReadUtm() {
+		var params = new URLSearchParams(window.location.search);
+		var fromUrl = {
+			utm_source: (params.get("utm_source") || "").slice(0, 120),
+			utm_medium: (params.get("utm_medium") || "").slice(0, 120),
+			utm_campaign: (params.get("utm_campaign") || "").slice(0, 120)
+		};
+		var saved = null;
+		try {
+			saved = JSON.parse(sessionStorage.getItem("cellarUtm") || "null");
+		} catch (e) {
+			saved = null;
+		}
+		var utm = {
+			utm_source: fromUrl.utm_source || (saved && saved.utm_source) || "",
+			utm_medium: fromUrl.utm_medium || (saved && saved.utm_medium) || "",
+			utm_campaign: fromUrl.utm_campaign || (saved && saved.utm_campaign) || ""
+		};
+		if (fromUrl.utm_source || fromUrl.utm_medium || fromUrl.utm_campaign) {
+			try {
+				sessionStorage.setItem("cellarUtm", JSON.stringify(utm));
+			} catch (e) {}
+		}
+		return utm;
+	}
+
+	function cellarApplyWhatsapp(link, utm) {
+		var href = link.getAttribute("href") || "";
+		if (!/whatsapp\.com|wa\.me/i.test(href)) return;
+		var url;
+		try {
+			url = new URL(href, window.location.href);
+		} catch (e) {
+			return;
+		}
+		if ((url.searchParams.get("text") || "").trim()) return;
+		var lines = [
+			"Hello Cellar Studio, I am enquiring from the " + cellarPageLabel() + " page.",
+			"Page: " + window.location.href.split("#")[0]
+		];
+		var bits = [utm.utm_source, utm.utm_medium, utm.utm_campaign].filter(Boolean);
+		if (bits.length) lines.push("Source: " + bits.join(" / "));
+		url.searchParams.set("text", lines.join("\n"));
+		link.setAttribute("href", url.toString());
+	}
+
+	function cellarFillUtm(form, utm) {
+		["utm_source", "utm_medium", "utm_campaign"].forEach(function (name) {
+			var input = form.querySelector('input[name="' + name + '"]');
+			if (!input) {
+				input = document.createElement("input");
+				input.type = "hidden";
+				input.name = name;
+				form.appendChild(input);
+			}
+			input.value = utm[name] || "";
+		});
+	}
+
+	var utm = cellarReadUtm();
+	document.querySelectorAll('a[href*="whatsapp.com"], a[href*="wa.me"]').forEach(function (link) {
+		cellarApplyWhatsapp(link, utm);
+	});
+	document.querySelectorAll("form.js-mailer-form").forEach(function (form) {
+		cellarFillUtm(form, utm);
+	});
+
+	document.addEventListener("click", function (event) {
+		var link = event.target && event.target.closest ? event.target.closest("a") : null;
+		if (!link) return;
+		var href = link.getAttribute("href") || "";
+		var eventName = "";
+		if (/whatsapp\.com|wa\.me/i.test(href)) {
+			cellarApplyWhatsapp(link, cellarReadUtm());
+			href = link.getAttribute("href") || href;
+			eventName = "whatsapp_click";
+		} else if (/^tel:/i.test(href)) {
+			eventName = "phone_click";
+		} else if (/^mailto:/i.test(href)) {
+			eventName = "email_click";
+		}
+		if (!eventName) return;
+		var currentUtm = cellarReadUtm();
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push({
+			event: eventName,
+			link_url: href,
+			page_path: window.location.pathname,
+			page_location: window.location.href.split("#")[0],
+			page_label: cellarPageLabel(),
+			utm_source: currentUtm.utm_source,
+			utm_medium: currentUtm.utm_medium,
+			utm_campaign: currentUtm.utm_campaign
+		});
+	}, true);
+});
+</script>
 
 <script>
 window.cellarStudioThankYouUrl = <?php echo wp_json_encode(home_url('/thank-you/')); ?>;
