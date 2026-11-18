@@ -146,6 +146,28 @@ function cellar_studio_output_social_meta(): void {
 }
 add_action('wp_head', 'cellar_studio_output_social_meta', 2);
 
+function cellar_studio_post_faq_entries(int $post_id): array {
+	$raw = get_post_meta($post_id, 'cellar_llm_faq', true);
+	if (!is_string($raw) || $raw === '') {
+		return [];
+	}
+	$decoded = json_decode($raw, true);
+	if (!is_array($decoded)) {
+		return [];
+	}
+	$entries = [];
+	foreach ($decoded as $row) {
+		if (!is_array($row) || empty($row['q']) || empty($row['a'])) {
+			continue;
+		}
+		$entries[] = [
+			'q' => (string) $row['q'],
+			'a' => (string) $row['a'],
+		];
+	}
+	return $entries;
+}
+
 function cellar_studio_faq_entries(): array {
 	return [
 		[
@@ -283,6 +305,24 @@ function cellar_studio_schema_graph(): array {
 			$article['image'] = $image;
 		}
 		$graph[] = $article;
+
+		$post_faq = cellar_studio_post_faq_entries($post_id);
+		if ($post_faq) {
+			$graph[] = [
+				'@type' => 'FAQPage',
+				'@id' => get_permalink($post_id) . '#faq',
+				'mainEntity' => array_map(static function (array $item): array {
+					return [
+						'@type' => 'Question',
+						'name' => $item['q'],
+						'acceptedAnswer' => [
+							'@type' => 'Answer',
+							'text' => $item['a'],
+						],
+					];
+				}, $post_faq),
+			];
+		}
 	}
 
 	if ((is_home() || $slug === 'blog') && !is_singular('post')) {

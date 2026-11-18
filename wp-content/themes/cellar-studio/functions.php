@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('CELLAR_STUDIO_THEME_VERSION', '1.0.21');
+define('CELLAR_STUDIO_THEME_VERSION', '1.0.22');
 define('CELLAR_STUDIO_META_PIXEL_ID', '1695884918273232');
 define('CELLAR_STUDIO_GTM_ID', 'GTM-5K9GJMPQ');
 
@@ -12,6 +12,7 @@ require_once get_template_directory() . '/inc/gtm.php';
 require_once get_template_directory() . '/inc/legal-pages.php';
 require_once get_template_directory() . '/inc/hardening.php';
 require_once get_template_directory() . '/inc/seo.php';
+require_once get_template_directory() . '/inc/blog-queue.php';
 
 /**
  * True when running on local XAMPP (not production).
