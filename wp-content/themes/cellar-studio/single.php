@@ -52,14 +52,11 @@ if (have_posts()) {
 			$mins = max(1, (int) ceil($words / 200));
 			$meta = esc_html($date) . ' &nbsp; | &nbsp; ' . esc_html($mins) . ' mins read';
 
-			// Hero image (first occurrence).
-			$body = preg_replace('~(<img[^>]+class="blog-detail-hero-bg"[^>]+src=")[^"]*(")~i', '$1' . esc_url($heroImg) . '$2', $body, 1) ?? $body;
-			// H1 title (first occurrence).
-			$body = preg_replace('~(<h1[^>]*class="blog-detail-hero-title[^"]*"[^>]*>)([\s\S]*?)(</h1>)~i', '$1' . esc_html($title) . '$3', $body, 1) ?? $body;
-			// Meta line (first occurrence). Match any class list that contains `news-meta`.
-			$body = preg_replace('~(<p[^>]*class="[^"]*\bnews-meta\b[^"]*"[^>]*>)([\s\S]*?)(</p>)~i', '$1' . $meta . '$3', $body, 1) ?? $body;
-			// Replace article body.
-			$body = preg_replace('~(<div[^>]*class="blog-article-body"[^>]*>)([\s\S]*?)(</div>)~i', '$1' . $content . '$3', $body, 1) ?? $body;
+			// Use ${n} so a following digit (the day in "19 Nov") is not read as part of the backreference.
+			$body = preg_replace('~(<img[^>]+class="blog-detail-hero-bg"[^>]+src=")[^"]*(")~i', '${1}' . esc_url($heroImg) . '${2}', $body, 1) ?? $body;
+			$body = preg_replace('~(<h1[^>]*class="blog-detail-hero-title[^"]*"[^>]*>)([\s\S]*?)(</h1>)~i', '${1}' . esc_html($title) . '${3}', $body, 1) ?? $body;
+			$body = preg_replace('~(<p[^>]*class="[^"]*\bnews-meta\b[^"]*"[^>]*>)([\s\S]*?)(</p>)~i', '${1}' . $meta . '${3}', $body, 1) ?? $body;
+			$body = preg_replace('~(<div[^>]*class="blog-article-body"[^>]*>)([\s\S]*?)(</div>)~i', '${1}' . $content . '${3}', $body, 1) ?? $body;
 
 			echo cellar_studio_rewrite_legacy_html($body, ['navTheme' => 'light']);
 		} else {
