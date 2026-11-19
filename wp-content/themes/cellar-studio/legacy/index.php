@@ -401,8 +401,8 @@ temperature control, and elegant presentation.             </p>
         </div>
         <div class="col-12 col-md-6 col-lg-3">
           <article class="solution-card reveal">
-            <img src="img/Services 4.png" alt="Rackings Solutions">
-            <div class="solution-card-label">Rackings Solutions</div>
+            <img src="img/Services 4.png" alt="Racking Solutions">
+            <div class="solution-card-label">Racking Solutions</div>
             <div class="solution-card-overlay">
               <p class="solution-card-text">
               From fully bespoke wine racking to ready-made solutions,

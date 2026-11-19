@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('CELLAR_STUDIO_THEME_VERSION', '1.0.18');
+define('CELLAR_STUDIO_THEME_VERSION', '1.0.22');
 define('CELLAR_STUDIO_META_PIXEL_ID', '1695884918273232');
 define('CELLAR_STUDIO_GTM_ID', 'GTM-5K9GJMPQ');
 
@@ -12,6 +12,7 @@ require_once get_template_directory() . '/inc/gtm.php';
 require_once get_template_directory() . '/inc/legal-pages.php';
 require_once get_template_directory() . '/inc/hardening.php';
 require_once get_template_directory() . '/inc/seo.php';
+require_once get_template_directory() . '/inc/blog-queue.php';
 
 /**
  * True when running on local XAMPP (not production).
@@ -116,6 +117,9 @@ function cellar_studio_handle_mailer_ajax(): void {
 	$source = sanitize_text_field(wp_unslash($_POST['source'] ?? ''));
 	$property_type = sanitize_text_field(wp_unslash($_POST['property_type'] ?? ''));
 	$location = sanitize_text_field(wp_unslash($_POST['location'] ?? ''));
+	$utm_source = substr(sanitize_text_field(wp_unslash($_POST['utm_source'] ?? '')), 0, 120);
+	$utm_medium = substr(sanitize_text_field(wp_unslash($_POST['utm_medium'] ?? '')), 0, 120);
+	$utm_campaign = substr(sanitize_text_field(wp_unslash($_POST['utm_campaign'] ?? '')), 0, 120);
 
 	$allowed_property_types = [
 		'Private Villa',
@@ -152,6 +156,9 @@ function cellar_studio_handle_mailer_ajax(): void {
 			'source' => $source,
 			'property_type' => $property_type,
 			'location' => $location,
+			'utm_source' => $utm_source,
+			'utm_medium' => $utm_medium,
+			'utm_campaign' => $utm_campaign,
 		]);
 
 		wp_send_json_success(['message' => 'Sent successfully.']);
